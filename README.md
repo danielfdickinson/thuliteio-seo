@@ -1,6 +1,6 @@
 # Hyas SEO
 
-Image render hook + shortcode for Hyas sites.
+SEO templates for Hyas sites.
 
 ## Status
 
@@ -71,4 +71,4 @@ See the Hyas docs: [SEO](https://gethyas.com/docs/reference-guides/seo/)
 
 ## Credits
 
-Structured data is based on [Schema.org](https://developer.yoast.com/features/schema/overview/) approach by Yoast SEO.
+Structured data setup is based on [Schema.org](https://developer.yoast.com/features/schema/overview/) approach by Yoast SEO.
