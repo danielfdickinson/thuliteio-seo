@@ -4,7 +4,7 @@ SEO templates for Hyas sites.
 
 ## Status
 
-[![npm (scoped)](https://img.shields.io/npm/v/@hyas/seo?style=flat-square)](https://www.npmjs.com/package/@hyas/images) [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/h-enk/hyas-seo/CodeQL?style=flat-square)]((https://github.com/h-enk/hyas-seo/actions/workflows/codeql.yml))
+[![npm (scoped)](https://img.shields.io/npm/v/@hyas/seo?style=flat-square)](https://www.npmjs.com/package/@hyas/seo) [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/h-enk/hyas-seo/CodeQL?style=flat-square)]((https://github.com/h-enk/hyas-seo/actions/workflows/codeql.yml))
 
 ## Installation
 
