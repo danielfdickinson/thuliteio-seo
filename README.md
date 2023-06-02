@@ -1,10 +1,10 @@
 # Hyas SEO
 
-SEO templates for Hyas sites.
+Official SEO integration for Hyas.
 
 ## Status
 
-[![npm (scoped)](https://img.shields.io/npm/v/@hyas/seo?style=flat-square)](https://www.npmjs.com/package/@hyas/seo) [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/h-enk/hyas-seo/codeql.yml?style=flat-square)](https://github.com/h-enk/hyas-seo/actions/workflows/codeql.yml)
+[![npm (scoped)](https://img.shields.io/npm/v/@hyas/seo?style=flat-square)](https://www.npmjs.com/package/@hyas/seo)
 
 ## Installation
 
@@ -26,42 +26,38 @@ Add to `./config/_default/module.toml`:
   target = "layouts"
 ```
 
-Add to `./config/_default/params.toml`:
+Add to `./config/_default/config.toml`:
+
+```toml
+title = "Hyas"
+enableRobotsTXT = true
+
+[social]
+  twitter = "gethyas"
+```
+
+Add to `./config/_default/params.yml`:
 
 ```bash
-## Homepage
-title = "Hyas"
-titleSeparator = "-"
-titleAddition = "Modern Hugo Starter"
-description = "Hyas is a Hugo starter helping you build modern websites that are secure, fast, and SEO-ready — by default."
-
-## Open Graph
-images = ["hyas.png"]
-ogLocale = "en_US"
-titleHome = "Hyas Hugo Starter"
-
-## Twitter Cards
-twitterSite = "@gethyas"
-twitterCreator = "@henkverlinde"
-
-## JSON-LD
-# schemaType = "Person"
-schemaType = "Organization"
-schemaName = "Hyas"
-schemaAuthor = "Henk Verlinde"
-schemaAuthorTwitter = "https://twitter.com/henkverlinde"
-schemaAuthorLinkedIn = "https://www.linkedin.com/in/henkverlinde/"
-schemaAuthorGitHub = "https://github.com/h-enk"
-schemaLocale = "en-US"
-schemaLogo = "logo-hyas.png"
-schemaLogoWidth = 512
-schemaLogoHeight = 512
-schemaImage = "hyas.png"
-schemaImageWidth = 1280
-schemaImageHeight = 640
-schemaTwitter = "https://twitter.com/gethyas"
-schemaLinkedIn = ""
-schemaGitHub = "https://github.com/h-enk/hyas"
+seo:
+  description: "Build your next web project with the official Bootstrap starter for Hyas."
+  generate:
+    title: true
+    meta: true
+    twitter: true
+    og: true
+    jsonld:
+      article: true
+      breadcrumbs: true
+  title_tag:
+    separator: "|"
+    home_text: "Bootstrap Starter"
+  og_article_types: [post, posts, blog, news, article, articles, event, events, course, courses]
+  jsonld_article_types: [article, articles]
+  jsonld_news_article_types: [news, updates]
+  jsonld_blog_posting_types: [post, posts, blog]
+  image: "/images/kris-mikael-krister-aGihPIbrtVE-unsplash.jpg" 
+  private: false
 ```
 
 ## Usage
@@ -71,4 +67,6 @@ See the Hyas docs: [SEO](https://gethyas.com/docs/reference-guides/seo/)
 
 ## Credits
 
-Structured data setup is based on [Schema.org](https://developer.yoast.com/features/schema/overview/) approach by Yoast SEO.
+This npm package is based on the Hugo module:
+
+- [future-wd/hugo-seo](https://github.com/future-wd/hugo-seo)
