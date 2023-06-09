@@ -9,12 +9,12 @@ Official SEO integration for Hyas.
 ## Installation
 
 ```bash
-npm i @hyas/seo -D
+npm i -D @hyas/seo
 ```
 
 ## Setup
 
-Add to `./config/_default/module.toml`:
+Add mounts to `./config/_default/module.toml`:
 
 ```toml
 [[mounts]]
@@ -36,7 +36,7 @@ enableRobotsTXT = true
   twitter = "gethyas"
 ```
 
-Add to `./config/_default/params.yml`:
+Set the `seo` parameters in `./config/_default/params.yml`:
 
 ```bash
 seo:
@@ -60,10 +60,11 @@ seo:
   private: false
 ```
 
-## Usage
+## How to use
 
-See the Hyas docs: [SEO](https://gethyas.com/docs/reference-guides/seo/)
+See the Hyas documentation:
 
+- [SEO](https://docs.gethyas.com/guides/integrations-guide/seo/)
 
 ## Credits
 
