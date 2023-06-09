@@ -26,7 +26,7 @@ Add mounts to `./config/_default/module.toml`:
   target = "layouts"
 ```
 
-Add to `./config/_default/config.toml`:
+Add to `./config/_default/hugo.toml`:
 
 ```toml
 title = "Hyas"
