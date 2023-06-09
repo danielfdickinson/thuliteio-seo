@@ -1,7 +1,7 @@
 {
   "name": "@hyas/seo",
   "description": "Hyas SEO",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "browserslist": [
     "defaults"
   ],
