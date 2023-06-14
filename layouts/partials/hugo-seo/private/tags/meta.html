@@ -4,7 +4,7 @@
 {{ $s.Add "meta" (dict "property" "canonical" "content" .canonical) }}
 
 {{ with .description }}
-{{ $s.Add "meta" (dict "property" "description" "content" . ) }}
+{{ $s.Add "meta" (dict "name" "description" "content" . ) }}
 {{ end }}
 
 {{ with .next }}
