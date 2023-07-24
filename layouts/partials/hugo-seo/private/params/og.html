@@ -40,7 +40,7 @@
 
 
 {{ with .Translations }}
-  {{ $locale_alternate = slice }}
+  {{ $locale_alternate := slice }}
   {{ range . }}
     {{ $locale_alternate = $locale_alternate | append .Lang }}
   {{ end }}
