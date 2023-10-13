@@ -1,0 +1,16 @@
+# Hugo
+title = "My Docs"
+description = "Congrats on setting up a new Doks project!"
+images = ["cover.png"]
+
+# SEO (@hyas/seo)
+[seo]
+  [seo.title]
+    separator = " | "
+    suffix = ""
+  [seo.favicons]
+    sizes = []
+    icon = "favicon.png" # favicon.png (default)
+    svg_icon = "favicon.svg" # favicon.svg (default)
+    mask_icon = "mask-icon.svg" # mask-icon.svg (default)
+    mask_icon_color = "white" # white (default)

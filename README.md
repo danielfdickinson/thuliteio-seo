@@ -9,7 +9,7 @@ Official SEO integration for Hyas.
 ## Installation
 
 ```bash
-npm i -D @hyas/seo
+npm i @hyas/seo
 ```
 
 ## Setup
@@ -26,7 +26,7 @@ Add mounts to `./config/_default/module.toml`:
   target = "layouts"
 ```
 
-Add to `./config/_default/hugo.toml`:
+Add settings to `./config/_default/hugo.toml`:
 
 ```toml
 title = "Hyas"
@@ -36,28 +36,25 @@ enableRobotsTXT = true
   twitter = "gethyas"
 ```
 
-Set the `seo` parameters in `./config/_default/params.yml`:
+Set parameters in `./config/_default/params.toml`:
 
-```bash
-seo:
-  description: "Build your next web project with the official Bootstrap starter for Hyas."
-  generate:
-    title: true
-    meta: true
-    twitter: true
-    og: true
-    jsonld:
-      article: true
-      breadcrumbs: true
-  title_tag:
-    separator: "|"
-    home_text: "Bootstrap Starter"
-  og_article_types: [post, posts, blog, news, article, articles, event, events, course, courses]
-  jsonld_article_types: [article, articles]
-  jsonld_news_article_types: [news, updates]
-  jsonld_blog_posting_types: [post, posts, blog]
-  image: "/images/kris-mikael-krister-aGihPIbrtVE-unsplash.jpg" 
-  private: false
+```toml
+# Hugo
+title = "My Docs"
+description = "Congrats on setting up a new Doks project!"
+images = ["cover.png"]
+
+# SEO (@hyas/seo)
+[seo]
+  [seo.title]
+    separator = " | "
+    suffix = ""
+  [seo.favicons]
+    sizes = []
+    icon = "favicon.png" # favicon.png (default)
+    svg_icon = "favicon.svg" # favicon.svg (default)
+    mask_icon = "mask-icon.svg" # mask-icon.svg (default)
+    mask_icon_color = "white" # white (default)
 ```
 
 ## How to use
@@ -68,6 +65,6 @@ See the Hyas documentation:
 
 ## Credits
 
-This npm package is based on the Hugo module:
+This npm package is based on:
 
-- [future-wd/hugo-seo](https://github.com/future-wd/hugo-seo)
+- [Hugo SEO](https://gitlab.com/hugo-modules/hugo-seo)
