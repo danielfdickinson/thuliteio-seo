@@ -40,7 +40,7 @@ Set parameters in `./config/_default/params.toml`:
 
 ```toml
 # Hugo
-title = "My Docs"
+title = "Hyas"
 description = "Congrats on setting up a new Doks project!"
 images = ["cover.png"]
 
@@ -52,9 +52,34 @@ images = ["cover.png"]
   [seo.favicons]
     sizes = []
     icon = "favicon.png" # favicon.png (default)
-    svg_icon = "favicon.svg" # favicon.svg (default)
-    mask_icon = "mask-icon.svg" # mask-icon.svg (default)
-    mask_icon_color = "white" # white (default)
+    svgIcon = "favicon.svg" # favicon.svg (default)
+    maskIcon = "mask-icon.svg" # mask-icon.svg (default)
+    maskIconColor = "white" # white (default)
+  [seo.schemas]
+    type = "Organization" # Organization (default) or Person
+    logo = "images/favicon.png" # Logo of Organization — images/favicon.png (default)
+    name = "Hyas" # Name of Organization or Person
+    sameAs = [] # E.g. ["https://github.com/gethyas/hyas", "https://fosstodon.org/@hyas"]
+    images = ["images/cover.png"] # ["images/cover.png"] (default)
+    article = [] # Article sections
+    newsArticle = [] # NewsArticle sections
+    blogPosting = ["blog"] # BlogPosting sections
+    product = [] # Product sections
+```
+
+Set parameters in page frontmatter:
+
+```yml
+seo:
+  title: "" # custom title (optional)
+  description: "" # custom description (recommended)
+  canonical: "" # custom canonical URL (optional)
+  noindex: false # false (default) or true
+  structured_data:
+    product:
+      currency: USD
+      price: 500
+      availability: https://schema.org/OnlineOnly
 ```
 
 ## How to use
@@ -68,3 +93,5 @@ See the Hyas documentation:
 This npm package is based on:
 
 - [Hugo SEO](https://gitlab.com/hugo-modules/hugo-seo)
+- [Structured Data for Breadcrumbs](https://bullaki.com/projects/web-design/seo-with-hugo-5-breadcrumbs/)
+- [Schema.org pieces](https://developer.yoast.com/features/schema/pieces/)

@@ -36,20 +36,20 @@
 {{- end }}
 
 {{/* SVG favicon - supported in all modern browsers. */}}
-{{- with resources.Get (default "favicon.svg" .Site.Params.seo.favicons.svg_icon) }}
+{{- with resources.Get (default "favicon.svg" .Site.Params.seo.favicons.svgIcon) }}
 {{- $svg := . | resources.Copy ("/favicon.svg" | relURL) }}
 <link rel="icon" href="{{ $svg.RelPermalink }}">
 {{- end }}
 
 {{/* Creating Pinned Tab Icons */}}
 {{/* see https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html */}}
-{{- $maskIcon := default "mask-icon.svg" .Site.Params.seo.favicons.mask_icon }}
+{{- $maskIcon := default "mask-icon.svg" .Site.Params.seo.favicons.maskIcon }}
 {{- with resources.Get $maskIcon }}
 {{- $mask := . | resources.Copy ("/mask-icon.svg" | relURL) }}
 <link
     rel="mask-icon"
     href="{{ $mask.RelPermalink }}"
-    color="{{ default `white` $.Site.Params.seo.favicons.mask_icon_color }}"
+    color="{{ default `white` $.Site.Params.seo.favicons.maskIconColor }}"
 >
 {{- else }}
 {{- warnf "[Hugo SEO] assets/%s does not exist." $maskIcon }}
