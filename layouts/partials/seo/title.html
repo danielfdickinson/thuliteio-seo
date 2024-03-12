@@ -2,4 +2,4 @@
 {{- if .Page.Params.seo.title }}
   {{ .Scratch.Set "title" .Page.Params.seo.title }}
 {{- end }}
-<title>{{ .Scratch.Get "title" }}</title>
+<title>{{ .Scratch.Get "title" | truncate site.Params.seo.title.maxLength }}</title>

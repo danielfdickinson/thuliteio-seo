@@ -6,4 +6,4 @@
 {{- else }}
   {{ $description = site.Params.Description }}
 {{- end }}
-<meta name="description" content="{{ $description }}">
+<meta name="description" content="{{ $description | truncate site.Params.seo.description.maxLength }}">
