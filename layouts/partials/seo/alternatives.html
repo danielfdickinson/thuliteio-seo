@@ -1,7 +1,7 @@
-{{- range .AlternativeOutputFormats }}
-  <link
-    rel="{{ .Rel }}"
-    type="{{ .MediaType.Type }}"
-    href="{{ .Permalink | safeURL }}"
-  >
+{{- $title := printf "%s | %s" .Title site.Title }}
+{{- if .IsHome }}
+  {{ $title = site.Title }}
+{{- end }}
+{{- range .AlternativeOutputFormats -}}
+  {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink $title | safeHTML }}
 {{- end }}

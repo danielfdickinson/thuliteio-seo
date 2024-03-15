@@ -9,7 +9,7 @@ Official SEO integration for Hyas.
 ## Installation
 
 ```bash
-npm i @hyas/seo
+npm install @hyas/seo@latest
 ```
 
 ## Setup
@@ -31,9 +31,6 @@ Add settings to `./config/_default/hugo.toml`:
 ```toml
 title = "Hyas"
 enableRobotsTXT = true
-
-[social]
-  twitter = "gethyas"
 ```
 
 Set parameters in `./config/_default/params.toml`:
@@ -44,23 +41,24 @@ title = "Hyas"
 description = "Congrats on setting up a new Doks project!"
 images = ["cover.png"]
 
+[social]
+  twitter = "getdoks"
+  facebook_admin = ""
+
 # SEO (@hyas/seo)
 [seo]
   [seo.title]
-    separator = " | "
-    suffix = ""
+    separator = "" # "|" (default)
+    suffix = "" # title hugo.toml (default)
   [seo.favicons]
-    sizes = []
     icon = "favicon.png" # favicon.png (default)
     svgIcon = "favicon.svg" # favicon.svg (default)
-    maskIcon = "mask-icon.svg" # mask-icon.svg (default)
-    maskIconColor = "white" # white (default)
   [seo.schemas]
     type = "Organization" # Organization (default) or Person
-    logo = "images/favicon.png" # Logo of Organization — images/favicon.png (default)
+    logo = "favicon-512x512.png" # Logo of Organization — favicon-512x512.png (default)
     name = "Hyas" # Name of Organization or Person
     sameAs = [] # E.g. ["https://github.com/gethyas/hyas", "https://fosstodon.org/@hyas"]
-    images = ["images/cover.png"] # ["images/cover.png"] (default)
+    images = ["cover.png"] # ["cover.png"] (default)
     article = [] # Article sections
     newsArticle = [] # NewsArticle sections
     blogPosting = ["blog"] # BlogPosting sections
@@ -74,7 +72,7 @@ seo:
   title: "" # custom title (optional)
   description: "" # custom description (recommended)
   canonical: "" # custom canonical URL (optional)
-  noindex: false # false (default) or true
+  robots: "" # custom robot tags (optional)
   structured_data:
     product:
       currency: USD
@@ -84,9 +82,9 @@ seo:
 
 ## How to use
 
-See the Hyas documentation:
+See the Hyas SEO documentation:
 
-- [SEO](https://docs.gethyas.com/guides/integrations-guide/seo/)
+- [Hyas SEO](https://seo.gethyas.com/)
 
 ## Credits
 

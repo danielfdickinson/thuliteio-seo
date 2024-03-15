@@ -35,7 +35,7 @@ Resources:
     {{- /* Parse Organization or Person schema. */}}
     {{- partial $p }}
   {{- else }}
-    {{- warnf "[Hugo SEO] Unsupported schema type: %s. Set %s in .Site.Params.seo.schemas.type" $t $v }}
+    {{- warnf "[Hyas SEO] Unsupported schema type: %s. Set %s in .Site.Params.seo.schemas.type" $t $v }}
   {{- end }}
 {{- else }}
   {{- /* Parse BreadcrumbList schema. */}}
@@ -43,21 +43,21 @@ Resources:
 {{- end }}
 
 {{- /* Parse Article schema. */}}
-{{ if and (in $a .Section) (.IsPage) -}}
+{{- if and (in $a .Section) (.IsPage) }}
   {{- partial "seo/schemas/article" . }}
 {{- end }}
 
 {{- /* Parse NewsArticle schema. */}}
-{{ if and (in $n .Section) (.IsPage) -}}
+{{- if and (in $n .Section) (.IsPage) }}
   {{- partial "seo/schemas/newsarticle" . }}
 {{- end }}
 
 {{- /* Parse BlogPosting schema. */}}
-{{ if and (in $b .Section) (.IsPage) -}}
+{{- if and (in $b .Section) (.IsPage) }}
   {{- partial "seo/schemas/blogposting" . }}
 {{- end }}
 
 {{- /* Parse Product schema. */}}
-{{ if and (in $p .Section) (.IsPage) -}}
+{{- if and (in $p .Section) (.IsPage) }}
   {{- partial "seo/schemas/product" . }}
 {{- end }}

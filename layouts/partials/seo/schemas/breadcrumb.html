@@ -29,5 +29,5 @@
 {{- $scratch.SetInMap "breadcrumb" "itemListElement" ($scratch.Get "listItem") -}}
 
 <script type="application/ld+json">
-  {{- $scratch.Get "breadcrumb" | jsonify (dict "prefix" " " "indent" "  ") | safeJS -}}
+  {{ $scratch.Get "breadcrumb" | jsonify (dict "prefix" " " "indent" "  ") | safeJS }}
 </script>
