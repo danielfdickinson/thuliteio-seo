@@ -1,9 +1,9 @@
 {{- $description := "" }}
 {{- if .Params.seo.description }}
-	{{ $description = .Params.seo.description }}
-{{- else if .Params.description }}
-	{{ $description = .Params.description }}
+	{{- $description = .Params.seo.description }}
+{{- else if .Description }}
+	{{- $description = .Description }}
 {{- else }}
-  {{ $description = site.Params.Description }}
+  {{- $description = site.Params.Description }}
 {{- end }}
-<meta name="description" content="{{ $description | truncate site.Params.seo.description.maxLength }}">
+<meta name="description" content="{{ $description }}">
