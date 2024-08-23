@@ -1,4 +1,4 @@
-# @hyas/seo
+# @thulite/seo
 
 ## 2.3.0
 

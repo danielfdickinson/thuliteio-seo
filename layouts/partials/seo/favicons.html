@@ -10,9 +10,9 @@
 {{- $svgIco := resources.Get $svgIconName }}
 {{- with $favicon }}
   {{- if ne .MediaType.MainType "image" }}
-    {{- warnf "[Hyas SEO] the assets/%s isn't an image, media type: %s." $faviconName .MediaType.Type }}
+    {{- warnf "[Thulite SEO] the assets/%s isn't an image, media type: %s." $faviconName .MediaType.Type }}
   {{- else if in (slice "svg") .MediaType.SubType }}
-    {{- warnf "[Hyas SEO] the assets/%s isn't resizable." $faviconName }}
+    {{- warnf "[Thulite SEO] the assets/%s isn't resizable." $faviconName }}
   {{- else }}
     {{/* favicon.ico */}}
     {{- $ico := $favicon.Resize "32x32" }}
@@ -37,7 +37,7 @@
     {{- end }}
   {{- end }}
 {{- else }}
-    {{- warnf "[Hyas SEO] assets/%s does not exist. Add a file that's at least 512x512 pixels." $faviconName }}
+    {{- warnf "[Thulite SEO] assets/%s does not exist. Add a file that's at least 512x512 pixels." $faviconName }}
 {{- end }}
 
 {{- $templ := `

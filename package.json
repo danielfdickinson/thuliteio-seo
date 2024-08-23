@@ -1,20 +1,20 @@
 {
-  "name": "@hyas/seo",
+  "name": "@thulite/seo",
   "version": "2.3.0",
-  "description": "Hyas SEO",
-  "author": "Hyas",
+  "description": "Thulite SEO",
+  "author": "Thulite",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gethyas/seo.git"
+    "url": "https://github.com/thuliteio/seo.git"
   },
   "scripts": {
     "format": "prettier **/** -w -c"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
-    "@changesets/cli": "^2.27.1",
-    "prettier": "^3.2.5"
+    "@changesets/cli": "^2.27.7",
+    "prettier": "^3.3.3"
   },
   "engines": {
     "node": ">=20.11.0"
