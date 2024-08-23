@@ -8,7 +8,7 @@ Supported schemas:
 - BlogPosting (BlogPosting sections — globally defined)
 - Product (Product sections — globally defined)
 
-Resources: 
+Resources:
  - https://developers.google.com/search/docs/appearance/structured-data/search-gallery
  - https://schema.org/docs/schemas.html
  - https://bullaki.com/projects/web-design/seo-with-hugo-5-breadcrumbs/
@@ -35,7 +35,7 @@ Resources:
     {{- /* Parse Organization or Person schema. */}}
     {{- partial $p }}
   {{- else }}
-    {{- warnf "[Hyas SEO] Unsupported schema type: %s. Set %s in .Site.Params.seo.schemas.type" $t $v }}
+    {{- warnf "[Thulite SEO] Unsupported schema type: %s. Set %s in .Site.Params.seo.schemas.type" $t $v }}
   {{- end }}
 {{- else }}
   {{- /* Parse BreadcrumbList schema. */}}

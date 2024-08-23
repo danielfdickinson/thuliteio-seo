@@ -1,12 +1,12 @@
-# Hyas SEO
+# Thulite SEO
 
-Official SEO integration for Hyas.
+Official SEO integration for Thulite.
 
 ## Getting Started
 
-See the Hyas SEO documentation:
+See the Thulite SEO documentation:
 
-- [Hyas SEO](https://seo.gethyas.com/docs/start-here/getting-started/)
+- [Thulite SEO](https://seo.thulite.io/docs/start-here/getting-started/)
 
 ## Credits
 
