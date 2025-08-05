@@ -1,5 +1,11 @@
 # @thulite/seo
 
+## 2.4.2
+
+### Patch Changes
+
+- [#27](https://github.com/thuliteio/seo/pull/27) [`2338e42`](https://github.com/thuliteio/seo/commit/2338e42e701afc9733e3174de0e6b7f0ad1e5a5b) Thanks [@h-enk](https://github.com/h-enk)! - Update for new template system in Hugo v0.146.0
+
 ## 2.4.1
 
 ### Patch Changes
