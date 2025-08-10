@@ -6,19 +6,21 @@
   {{- $scratchCtx := .scratch -}}
   {{- with .parent }}
     {{ partial "inline/breadcrumbData" (dict "scratch" $scratchCtx "parent" .Parent) }}
-    {{- $scratchCtx.Add "listItem" (slice (dict 
-      "@type" "ListItem"
-      "position" ($scratchCtx.Get "count")
-      "name" (.Title | humanize | title)
-      "item" .Permalink
-    )) -}}
-    {{- $scratchCtx.Add "count" 1 -}}
+    {{- if and .Permalink (ne .Permalink "") }}
+      {{- $scratchCtx.Add "listItem" (slice (dict
+        "@type" "ListItem"
+        "position" ($scratchCtx.Get "count")
+        "name" (.Title | humanize | title)
+        "item" .Permalink
+      )) -}}
+      {{- $scratchCtx.Add "count" 1 -}}
+    {{- end }}
   {{- end }}
 {{- end -}}
 
 {{ partial "inline/breadcrumbData" (dict "scratch" $scratch "parent" .Parent) }}
 
-{{- $scratch.Add "listItem" (slice (dict 
+{{- $scratch.Add "listItem" (slice (dict
   "@type" "ListItem"
   "position" ($scratch.Get "count")
   "name" (.Title | humanize | title)
