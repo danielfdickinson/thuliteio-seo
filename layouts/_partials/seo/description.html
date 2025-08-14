@@ -1,9 +1,51 @@
+{{- /* Error level when description not in recommended length: ignore, warning, or error. */}}
+{{- $errorLevel := or site.Params.seo.description.length.errorLevel "warning" | lower }}
+{{ $curPage := .Page }}
+
+{{- /* ignore description length for specified pages */ -}}
+{{- range site.Params.seo.description.lengthIgnores }}
+	{{- if gt (len (findRE . $curPage.TranslationKey)) 0 }}
+		{{ $errorLevel = "ignore" }}
+	{{- end }}
+{{- end }}
+
+{{- /* Do fallback to page summary before fallback to site description */ -}}
+{{- $summaryFallback := true -}}
+{{- if isset site.Params.seo.description "summaryFallback" }}
+	{{- $summaryFallback = site.Params.seo.description.summaryFallback }}
+{{- end }}
+
+{{- /* Validate error level. */}}
+{{- if not (in (slice "ignore" "warning" "error") $errorLevel) }}
+    {{- errorf "The seo descriptionLength is misconfigured. The errorLevel %q is invalid. Please check your site configuration." $errorLevel }}
+{{- end }}
+
 {{- $description := "" }}
 {{- if .Params.seo.description }}
 	{{- $description = .Params.seo.description }}
 {{- else if .Description }}
 	{{- $description = .Description }}
-{{- else }}
+{{- else if and $summaryFallback $curPage.Summary }}
+	{{- $description = $curPage.Summary | plainify }}
+{{- else if and $summaryFallback $curPage.Params.summary }}
+	{{- $description = $curPage.Params.summary | plainify }}
+{{- else if site.Params.seo.description.siteParamsFallback }}
   {{- $description = site.Params.Description }}
+{{- end }}
+{{- if ne $errorLevel "ignore" }}
+  {{- $lengthMessage := "" }}
+  {{- $descriptionLength := len $description }}
+	{{- if lt $descriptionLength 110 }}
+		{{- $lengthMessage = printf "Description too short on page '%s'. %d characters is < 110" .Page.TranslationKey $descriptionLength }}
+	{{- else if gt $descriptionLength 160 }}
+		{{- $lengthMessage = printf "Description too long on page '%s'. %d characters is >160" .Page.TranslationKey $descriptionLength }}
+	{{- end }}
+	{{- if ne $lengthMessage "" }}
+		{{ if eq $errorLevel "warning" }}
+			{{ warnf $lengthMessage }}
+		{{ else if $errorLevel "error" }}
+		  {{ errorf $lengthMessage }}
+		{{ end }}
+	{{- end }}
 {{- end }}
 <meta name="description" content="{{ $description }}">
