@@ -1,6 +1,7 @@
+{{ $curPage := .Page }}
+
 {{- /* Error level when description not in recommended length: ignore, warning, or error. */}}
 {{- $errorLevel := or site.Params.seo.description.length.errorLevel "warning" | lower }}
-{{ $curPage := .Page }}
 
 {{- /* ignore description length for specified pages */ -}}
 {{- range site.Params.seo.description.lengthIgnores }}
