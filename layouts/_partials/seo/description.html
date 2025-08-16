@@ -2,6 +2,8 @@
 
 {{- /* Error level when description not in recommended length: ignore, warning, or error. */ -}}
 {{- $errorLevel := (or site.Params.seo.description.length.errorLevel "warning") | lower -}}
+{{- $maxDesc := or site.Params.seo.description.length.max 160 }}
+{{- $minDesc := or site.Params.seo.description.length.min 110 }}
 
 {{- /* ignore description length for specified pages */ -}}
 {{- range site.Params.seo.description.lengthIgnores }}
@@ -36,10 +38,10 @@
 {{- if ne $errorLevel "ignore" }}
 	{{- $lengthMessage := "" }}
 	{{- $descriptionLength := len $description }}
-	{{- if lt $descriptionLength 110 }}
-		{{- $lengthMessage = printf "Description too short on page '%s'. %d characters is < 110" .Page.TranslationKey $descriptionLength }}
-	{{- else if gt $descriptionLength 160 }}
-		{{- $lengthMessage = printf "Description too long on page '%s'. %d characters is >160" .Page.TranslationKey $descriptionLength }}
+	{{- if lt $descriptionLength $minDesc }}
+		{{- $lengthMessage = printf "Description too short on page '%s'. %d characters is < %d" .Page.TranslationKey $descriptionLength $minDesc }}
+	{{- else if gt $descriptionLength $maxDesc }}
+		{{- $lengthMessage = printf "Description too long on page '%s'. %d characters is > %d" .Page.TranslationKey $descriptionLength $maxDesc }}
 	{{- end }}
 	{{- if ne $lengthMessage "" }}
 		{{- if eq $errorLevel "warning" }}
