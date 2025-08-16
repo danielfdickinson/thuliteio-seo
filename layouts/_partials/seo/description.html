@@ -46,7 +46,7 @@
 	{{- if ne $lengthMessage "" }}
 		{{- if eq $errorLevel "warning" }}
 			{{- warnf $lengthMessage }}
-		{{ -else if $errorLevel "error" }}
+		{{- else if eq $errorLevel "error" }}
 			{{- errorf $lengthMessage }}
 		{{- end }}
 	{{- end }}
