@@ -1,12 +1,12 @@
-{{ $curPage := .Page }}
+{{- $curPage := .Page -}}
 
-{{- /* Error level when description not in recommended length: ignore, warning, or error. */}}
-{{- $errorLevel := or site.Params.seo.description.length.errorLevel "warning" | lower }}
+{{- /* Error level when description not in recommended length: ignore, warning, or error. */ -}}
+{{- $errorLevel := or site.Params.seo.description.length.errorLevel "warning" | lower -}}
 
 {{- /* ignore description length for specified pages */ -}}
 {{- range site.Params.seo.description.lengthIgnores }}
 	{{- if gt (len (findRE . $curPage.TranslationKey)) 0 }}
-		{{ $errorLevel = "ignore" }}
+		{{- $errorLevel = "ignore" }}
 	{{- end }}
 {{- end }}
 
@@ -18,7 +18,7 @@
 
 {{- /* Validate error level. */}}
 {{- if not (in (slice "ignore" "warning" "error") $errorLevel) }}
-    {{- errorf "The seo descriptionLength is misconfigured. The errorLevel %q is invalid. Please check your site configuration." $errorLevel }}
+	{{- errorf "The seo descriptionLength is misconfigured. The errorLevel %q is invalid. Please check your site configuration." $errorLevel }}
 {{- end }}
 
 {{- $description := "" }}
@@ -34,19 +34,19 @@
   {{- $description = site.Params.Description }}
 {{- end }}
 {{- if ne $errorLevel "ignore" }}
-  {{- $lengthMessage := "" }}
-  {{- $descriptionLength := len $description }}
+	{{- $lengthMessage := "" }}
+	{{- $descriptionLength := len $description }}
 	{{- if lt $descriptionLength 110 }}
 		{{- $lengthMessage = printf "Description too short on page '%s'. %d characters is < 110" .Page.TranslationKey $descriptionLength }}
 	{{- else if gt $descriptionLength 160 }}
 		{{- $lengthMessage = printf "Description too long on page '%s'. %d characters is >160" .Page.TranslationKey $descriptionLength }}
 	{{- end }}
 	{{- if ne $lengthMessage "" }}
-		{{ if eq $errorLevel "warning" }}
-			{{ warnf $lengthMessage }}
-		{{ else if $errorLevel "error" }}
-		  {{ errorf $lengthMessage }}
-		{{ end }}
+		{{- if eq $errorLevel "warning" }}
+			{{- warnf $lengthMessage }}
+		{{ -else if $errorLevel "error" }}
+			{{- errorf $lengthMessage }}
+		{{- end }}
 	{{- end }}
 {{- end }}
 <meta name="description" content="{{ $description }}">
